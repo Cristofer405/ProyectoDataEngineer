@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 -- Table `dw_restaurante`.`Hec_Fact_Pedidos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dw_restaurante`.`Hec_Fact_Pedidos` (
-  `idPedidos` INT NOT NULL AUTO_INCREMENT,
+  `idPedidos` INT NOT NULL,
   `idLocal` INT NOT NULL,
   `idMesa` INT NOT NULL,
   `idClientes` INT NOT NULL,
@@ -85,13 +85,13 @@ CREATE TABLE IF NOT EXISTS `dw_restaurante`.`Hec_Fact_Pedidos` (
   `idDireccionEnvio` INT NULL,
   `ItemsTotal` INT NOT NULL,
   `PrecioTotal` DECIMAL(10,2) NOT NULL,
-  `Dim_Tiempo_idTiempo` INT NOT NULL,
+  `idTiempo` INT NOT NULL,
   PRIMARY KEY (`idPedidos`),
   INDEX `fk_Pedidos_Local1_idx` (`idLocal` ASC) VISIBLE,
   INDEX `fk_Pedidos_Mesa1_idx` (`idMesa` ASC) VISIBLE,
   INDEX `fk_Pedidos_Clientes1_idx` (`idClientes` ASC) VISIBLE,
   INDEX `fk_Pedidos_Trabajador1_idx` (`idTrabajador` ASC) VISIBLE,
-  INDEX `fk_Hec_Fact_Pedidos_Dim_Tiempo1_idx` (`Dim_Tiempo_idTiempo` ASC) VISIBLE,
+  INDEX `fk_Hec_Fact_Pedidos_Dim_Tiempo1_idx` (`idTiempo` ASC) VISIBLE,
   CONSTRAINT `fk_Pedidos_Local1`
     FOREIGN KEY (`idLocal`)
     REFERENCES `dw_restaurante`.`Dim_Local` (`idLocal`)
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `dw_restaurante`.`Hec_Fact_Pedidos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Hec_Fact_Pedidos_Dim_Tiempo1`
-    FOREIGN KEY (`Dim_Tiempo_idTiempo`)
+    FOREIGN KEY (`idTiempo`)
     REFERENCES `dw_restaurante`.`Dim_Tiempo` (`idTiempo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
