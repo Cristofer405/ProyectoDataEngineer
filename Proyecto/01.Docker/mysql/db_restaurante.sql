@@ -227,7 +227,7 @@ USE db_restaurante;
 INSERT INTO `db_restaurante`.`Categoria` (Nombre)
 VALUES('Entradas y Piqueos'), ('Ensaladas'), ('Platos de Fondo'), ('Guarniciones'), ('Postres'), ('Bebidas');
 
-INSERT INTO `db_restaurante`.`subcategoria` (`idCategoria`, `nombre`)
+INSERT INTO `db_restaurante`.`SubCategoria` (`idCategoria`, `nombre`)
 VALUES(1, 'Entradas y Piqueos'), (2, 'Ensaladas'), (3, 'Los Anticuchos'), (3, 'Los Guisos Criollos'), (3, 'Las Jaranas'),
 	  (3, 'Sopas'), (3, 'Tacu Tacus, Saltados y más'), (4, 'Guarniciones'), (5, 'Postres'), (6, 'Cocteles'),
       (6, 'Licores'), (6, 'Cervezas'), (6, 'Sin Alcohol'), (6, 'Calientes');
